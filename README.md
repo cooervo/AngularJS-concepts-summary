@@ -198,4 +198,14 @@ When we find our controllers getting bloated, it’s time to try to move code ou
 
 * What’s the difference between a **service**, a **factory**, and a **provider**? As you read more Angular code you’ll see these three terms used almost interchangeably. That’s because *they’re all the same thing. service and factory are both implemented by provider under the hood. The difference is in the level of configuration you have when creating each one. 
 
+### Useful ionic commands
+
+Create a local server that updates the app in the **browser** as changes are saved.
+  
+      ionic serve 
+      
+Updates saved changed in the app in the **android device** VERY USEFUL!!!
+  
+      ionic run android -l -c
+
 
