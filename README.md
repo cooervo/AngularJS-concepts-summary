@@ -210,7 +210,7 @@ Updates saved changed in the app in the **android device** VERY USEFUL!!!
 
 ### Run chrome as a non secure instance for VPN and ajax
 
-use this commmand inside the desktop link (acceso directo) of chrome
+use this commmand inside the desktop link (acceso directo) of chrome, **make sure to close any other running process in the background of chrome (cntrl+alt+supr close every chrome process) and close chrome first**
 
     "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --args --disable-web-security
 
