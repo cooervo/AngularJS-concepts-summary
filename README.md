@@ -233,7 +233,8 @@ To sign the unsigned APK, run the jarsigner tool which is also included in the J
 
     //If jarsigner isn't recognize as command just add it to environment vars PATH (usually the file is where the java bin are)
     //this signs the unsigned.apk file
-    jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore unsigned.apk alias_name
+    //remeber to rename key.keystore and unsigned.apk by whatever this files are named in your system
+    jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore key.keystore unsigned.apk alias_name
 
  Finally, we need to run the zip align tool to optimize the APK. The zipalign tool can be found in /path/to/Android/sdk/build-tools/VERSION/zipalign
 
