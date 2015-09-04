@@ -198,7 +198,7 @@ When we find our controllers getting bloated, it’s time to try to move code ou
 
 * What’s the difference between a **service**, a **factory**, and a **provider**? As you read more Angular code you’ll see these three terms used almost interchangeably. That’s because *they’re all the same thing. service and factory are both implemented by provider under the hood. The difference is in the level of configuration you have when creating each one. 
 
-### Useful ionic commands
+# Useful ionic commands
 
 Create a local server that updates the app in the **browser** as changes are saved.
   
@@ -213,4 +213,31 @@ Updates saved changed in the app in the **android device** VERY USEFUL!!!
 use this commmand inside the desktop link (acceso directo) of chrome, **make sure to close any other running process in the background of chrome (cntrl+alt+supr close every chrome process) and close chrome first**
 
     "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --args --disable-web-security
+    
+### Building signed apk to publish in android with Ionic
+
+To generate a release build for Android, we can use the following cordova cli command:
+
+    //this generates the *-unsigned.apk file
+    cordova build --release android
+
+Next, we can find our unsigned APK file in platforms/android/build/outputs/apk
+
+Let's generate our private key using the keytool command that comes with the JDK. If this tool isn't found, refer to the installation guide:
+
+    //If this doesn't work on windows make it on linux and pass *.keystore file through dropbox
+    //This generates key.keystore file
+    keytool -genkey -v -keystore key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+
+To sign the unsigned APK, run the jarsigner tool which is also included in the JDK:
+
+    //If jarsigner isn't recognize as command just add it to environment vars PATH (usually the file is where the java bin are)
+    //this signs the unsigned.apk file
+    jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore unsigned.apk alias_name
+
+ Finally, we need to run the zip align tool to optimize the APK. The zipalign tool can be found in /path/to/Android/sdk/build-tools/VERSION/zipalign
+
+    //is still not recognize try adding it to environment vars PATH
+    //If the zipalign isn't recognize try ./zipalign .... 
+    zipalign -v 4 unsigned.apk YouAppName.apk
 
