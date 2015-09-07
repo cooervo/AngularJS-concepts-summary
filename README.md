@@ -119,6 +119,17 @@ Use a promise. This is the approach Angular takes.
 
 ### Promises
 
+#### What is a promise?
+
+The core idea behind promises is that a promise represents the result of an asynchronous operation. A promise is in one of three different states:
+
+* pending - The initial state of a promise.
+* fulfilled - The state of a promise representing a successful operation.
+* rejected - The state of a promise representing a failed operation.
+
+Once a promise is fulfilled or rejected, it is immutable (i.e. it can never change again).
+
+
 Promises are objects that help make working with async code feel like we’re writing synchronous code. Angular uses promises extensively, so it is important to get familiar with how to use them.
 
 We use primarily only three methods when we use promises:
