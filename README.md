@@ -115,7 +115,14 @@ In general, we have two options:
 Pass a callback function. This is a function that will be called when the HTTP request completes.
 Use a promise. This is the approach Angular takes.
 
+### $http
 
+Since all communication over the HTTP protocol is asynchronous the `$http.get` method is a non-blocking method call and returns a promise. 
+
+    $http.get("http://www.example.com/getx")
+    .success(function(response) {$scope.names = response.records;});
+
+AngularJS calls the success function whenever the status code returned in the response header is in the range 200-299 other wise it calls the error function. There is one exception though, if the status code indicates a redirection (3xx) then the HTTP request will (transparently) follow it instead of calling the error function.
 
 ### Promises
 
