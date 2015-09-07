@@ -90,6 +90,28 @@ The benefit of creating a new scope is that we’re able to keep variables and d
 
 Technically, every time that we create a new controller, Angular creates a new `$scope` object underneath the parent scope. (In this case the parent is `$rootScope`.)
 
+### Callbacks (Higher-Order Functions) in JavaScript
+
+Is a function that is passed to another function (let’s call this other function “otherFunction”) as a parameter, and the callback function is called (or executed) inside the otherFunction. A callback function is essentially a pattern (an established solution to a common problem), and therefore, the use of a callback function is also known as a callback pattern.
+
+Consider this common use of a callback function in jQuery:
+
+        //Note that the item in the click method's parameter is a function, not a variable.​
+        ​//The item is a callback function
+        $("#btn_1").click(function() {
+          alert("Btn 1 Clicked");
+        });
+
+As you see in the preceding example, we pass a function as a parameter to the click method. And the click method will call (or execute) the callback function we passed to it. This example illustrates a typical use of callback functions in JavaScript, and one widely used in jQuery.
+
+Traditionally functions work by taking input in the form of arguments and returning a value using a return statement (ideally a single return statement at the end of the function: one entry point and one exit point). This makes sense. Functions are essentially mappings between input and output.
+
+Javascript gives us an option to do things a bit differently. Rather than wait around for a function to finish by returning a value, we can use callbacks to do it asynchronously. This is useful for things that take a while to finish, like making an AJAX request, because we aren’t holding up the browser. We can keep on doing other things while waiting for the callback to be called. In fact, very often we are required (or, rather, strongly encouraged) to do things asynchronously in Javascript.
+
+Using callback functions to achieve asynchrony in code becomes just way too complicated when you have to compose multiple asynchronous calls and make decisions depending upon the outcome of this composition. While handling the normal case is still somewhat feasible it starts to become very ugly when you have to provide rock solid exception handling.
+
+Comes the Promise to the rescue! (A promise represents the eventual result of an asynchronous operation).
+
 ### $http, XHR, and Promises
 
 Once we understand how to interact with data from within our own application, then the next logical step is to get data from the outside world and use it in our application.
@@ -125,6 +147,12 @@ Since all communication over the HTTP protocol is asynchronous the `$http.get` m
 AngularJS calls the success function whenever the status code returned in the response header is in the range 200-299 other wise it calls the error function. There is one exception though, if the status code indicates a redirection (3xx) then the HTTP request will (transparently) follow it instead of calling the error function.
 
 ### Promises
+
+> A promise represents the eventual result of an asynchronous operation.
+
+Ok, this is quite a mouth full. What does it mean in layman’s term? A promise is an object with a then method. The then method has two (optional) parameters of type function. The signature of the then method looks like this
+
+     promise.then(onSucess, onFailure);
 
 #### What is a promise?
 
@@ -215,6 +243,11 @@ The idea here is that you want to keep your controllers thin. In the example abo
 When we find our controllers getting bloated, it’s time to try to move code out of our controller and into a service. Not only is this good programming practice, it is easier to test services as a unit when they aren’t mixed up with the rest of our controller code.
 
 * What’s the difference between a **service**, a **factory**, and a **provider**? As you read more Angular code you’ll see these three terms used almost interchangeably. That’s because *they’re all the same thing. service and factory are both implemented by provider under the hood. The difference is in the level of configuration you have when creating each one. 
+
+
+
+----------------------------------------------------------
+
 
 # Useful ionic commands
 
