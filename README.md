@@ -1,5 +1,12 @@
 # AngularJS-cheatsheet
 
+### Useful links
+
+* [The Ultimate AngularJS Cheat Sheet - Part 1](http://www.dotnetcurry.com/angularjs/1114/angularjs-cheatsheet-beginner-developers-part1) 
+* [The Ultimate AngularJS CheatSheet - Part 2 (Intermediate to Advanced Developers)](http://www.dotnetcurry.com/angularjs/1115/angularjs-cheatsheet-intermediate-advanced-developers-part2) 
+* [The Top 10 Mistakes AngularJS Developers Make](https://www.airpair.com/angularjs/posts/top-10-mistakes-angularjs-developers-make) 
+
+
 ### Directives
 
 A good way to understand directives is by way of analogy. Think for a moment about how web pages are created: we write HTML tags and each tag defines a different behavior. When we use `<ul>` and `<li>` tags, we’re telling the browser we want an unordered list. When we use HTML5 `<video>` or `<audio>` tags, we’re telling the browser we want a video or audio track to be displayed.
