@@ -251,6 +251,64 @@ When we find our controllers getting bloated, it’s time to try to move code ou
 
 * What’s the difference between a **service**, a **factory**, and a **provider**? As you read more Angular code you’ll see these three terms used almost interchangeably. That’s because *they’re all the same thing. service and factory are both implemented by provider under the hood. The difference is in the level of configuration you have when creating each one. 
 
+### Factory
+
+We can use factories in a very simple way: 
+
+     angular
+      .module('az-app')
+      .factory('DataModelService', function() {
+      
+        //no need for getters and setters since we just need to get variables and set without any complex logic
+        var name = "Mateo";
+        var telephone = 018007367;
+        
+        //this is the object that will be injected
+        return Object;
+      });
+
+And just access the vars directly or set them directly:
+
+    DataModelService.name; //gets var name "Mateo"
+    DataModelService.name = "Newname"; // sets var name to "Newname"
+
+But I can also use getters and setters to hide complex logic from controller.
+
+    angular
+      .module('az-app')
+      .factory('DataModelService', function() {
+      
+        //This obj is necessary because factory must return an object to be injected where needed
+        var Object = {
+          city:"",
+          name: "Oldname",
+          lastName: "Lastname",
+          idNumber:"007",
+          telephone: "01800",
+          address: "Calle 90"
+        };
+        
+        //----setters---- 
+        Object.setFullName = function(name, lastName){
+          Object.name = name;
+          Object.lastName = lastName;
+        }
+        
+        //----getters----
+        Object.getFullName = function(){
+          return Object.name + Object.lastName;
+        }
+        
+        //this is the object that will be injected
+        return Object;
+      });
+
+This more complex way we can use **encapsulation** whenever we need complex getters and setters, for example if we need to convert a Date object to a string representation of Date this would be useful. Remember encapsulation is good as we can hide logic from the controller.
+
+    DataModelService.setFullName("Mateo", "Cuervo");
+    DataModelService.getFullName; //returns "Mateo Cuervo"
+
+
 
 
 ----------------------------------------------------------
