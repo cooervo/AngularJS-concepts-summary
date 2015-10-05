@@ -315,8 +315,6 @@ This more complex way we can use **encapsulation** whenever we need complex gett
 
 
 ----------------------------------------------------------
-
-
 # Useful ionic commands
 
 Create a local server that updates the app in the **browser** as changes are saved.
@@ -361,3 +359,9 @@ To sign the unsigned APK, run the jarsigner tool which is also included in the J
     //If the zipalign isn't recognize try ./zipalign .... 
     zipalign -v 4 unsigned.apk YouAppName.apk
 
+##### To do chrome remote debuggin
+1. Open app in device
+2. Open chrome
+3. type in navegation bar: `chrome://inspect`
+4. Select device to inspect
+2. 
