@@ -7,6 +7,7 @@
 * [The Top 10 Mistakes AngularJS Developers Make](https://www.airpair.com/angularjs/posts/top-10-mistakes-angularjs-developers-make) 
 * [Opinionated AngularJS styleguide for teams](http://toddmotto.com/opinionated-angular-js-styleguide-for-teams/) 
 * [Tutorial de como referenciar bien al scope del controlador](http://blog.jetbrains.com/webstorm/2014/03/angularjs-workflow-in-webstorm/) 
+* Recomendado por Daniel [5 Guidelines For Avoiding Scope Soup in Angular](http://www.technofattie.com/2014/03/21/five-guidelines-for-avoiding-scope-soup-in-angular.html) 
 
 
 
