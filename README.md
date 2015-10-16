@@ -334,31 +334,30 @@ use this commmand inside the desktop link (acceso directo) of chrome, **make sur
     
 ### Building signed apk to publish in android with Ionic
 
-To generate a release build for Android, we can use the following cordova cli command:
+1. To generate a release build for Android, first go to ionic app root directory.
 
-    //this generates the *-unsigned.apk file
-    cordova build --release android
+2. Then we can use the following cordova terminal command:
 
-Next, we can find our unsigned APK file in platforms/android/build/outputs/apk
+        #Generates the *-unsigned.apk file
+        cordova build --release android
 
-Let's generate our private key using the keytool command that comes with the JDK. If this tool isn't found, refer to the installation guide:
+3. Go to directory `platforms/android/build/outputs/apk`, where we can find our generated unsigned APK file:
 
-    //If this doesn't work on windows make it on linux and pass *.keystore file through dropbox
-    //This generates key.keystore file
-    keytool -genkey -v -keystore key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+4. Generate private key using the keytool command that comes with the JDK. If this tool isn't found, refer to the installation guide (If this command doesn't work on windows make it on linux or a mac and pass *.keystore file through dropbox):
 
-To sign the unsigned APK, run the jarsigner tool which is also included in the JDK:
+        #This generates key.keystore file
+         keytool -genkey -v -keystore key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
 
-    //If jarsigner isn't recognize as command just add it to environment vars PATH (usually the file is where the java bin are)
-    //this signs the unsigned.apk file
-    //remeber to rename key.keystore and unsigned.apk by whatever this files are named in your system
-    jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore key.keystore unsigned.apk alias_name
+5. To sign the unsigned APK, run the jarsigner tool which is also included in the JDK. **The jarsigner signs the unsigned.apk file** (If jarsigner isn't recognize as command just add it to environment vars PATH, usually the file is where the java bin are):
 
- Finally, we need to run the zip align tool to optimize the APK. The zipalign tool can be found in /path/to/Android/sdk/build-tools/VERSION/zipalign
+         #Remember to rename key.keystore and unsigned.apk by whatever this files are named in your system
+         jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore key.keystore unsigned.apk alias_name
 
-    //is still not recognize try adding it to environment vars PATH
-    //If the zipalign isn't recognize try ./zipalign .... 
-    zipalign -v 4 unsigned.apk YouAppName.apk
+6. Finally, we need to run the zip align tool to optimize the APK (If zipalign is not recognize try adding it to environment vars PATH for windows; usually the zipalign tool can be found in `your/path/to/Android/sdk/build-tools/VERSION/zipalign`)
+    
+        #If the zipalign isn't recognize try ./zipalign for gitbash or unix based systems 
+        zipalign -v 4 unsigned.apk YouAppName.apk
+
 
 ##### To use chrome remote debuggin
 1. Open app in device
