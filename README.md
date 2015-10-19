@@ -342,8 +342,7 @@ use this commmand inside the desktop link (acceso directo) of chrome, **make sur
         cordova build --release android
 
 3. Go to directory `platforms/android/build/outputs/apk`, where we can find our generated unsigned APK file.
-
-**Very important**: if the past command generates 2 apks use the one that contains **arm** in its name for example: "`android-armv7-release-unsigned.apk`".
+**Very important**: if the past command generates mora than 1 apks, use the one that contains **arm** in its name for example: `android-armv7-release-unsigned.apk`.
 
 4. Generate private key using the keytool command that comes with the JDK. If this tool isn't found, refer to the installation guide (If this command doesn't work on windows make it on linux or a mac and pass *.keystore file through dropbox):
 
