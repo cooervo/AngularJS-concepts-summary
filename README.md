@@ -6,8 +6,8 @@
 * [The Ultimate AngularJS CheatSheet - Part 2 (Intermediate to Advanced Developers)](http://www.dotnetcurry.com/angularjs/1115/angularjs-cheatsheet-intermediate-advanced-developers-part2) 
 * [The Top 10 Mistakes AngularJS Developers Make](https://www.airpair.com/angularjs/posts/top-10-mistakes-angularjs-developers-make) 
 * [Opinionated AngularJS styleguide for teams](http://toddmotto.com/opinionated-angular-js-styleguide-for-teams/) 
-* [Tutorial de como referenciar bien al scope del controlador](http://blog.jetbrains.com/webstorm/2014/03/angularjs-workflow-in-webstorm/) 
-* [Service vs Factory] (#service_vs_factory)
+* [Webstorm angular workflow](http://blog.jetbrains.com/webstorm/2014/03/angularjs-workflow-in-webstorm/) 
+* [Service vs Factory] (#service-vs-factory)
 
 
 
