@@ -37,7 +37,7 @@ Basically the difference between the service and factory is as follows (more inf
           }
         });
         
-        ### Services
+### Services
 
 Services are another core concept in AngularJS. When we used $http we were using an Angular service. Services are singleton objects that perform tasks common to several areas of the system.
 
